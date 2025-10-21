@@ -1,0 +1,9 @@
+with t AS (
+            SELECT candidate_id, COUNT(skill) AS cnt
+            FROM candidates
+            WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
+            GROUP BY candidate_id
+            )
+SELECT candidate_id
+FROM t
+WHERE cnt = 3
